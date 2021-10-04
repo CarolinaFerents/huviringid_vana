@@ -5,111 +5,23 @@
 */
 // three.js - https://github.com/mrdoob/three.js
 
+$(document).ready(function () {
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      $('.scroll-top').fadeIn();
+    } else {
+      $('.scroll-top').fadeOut();
+    }
+  });
 
- 
-    function init() {
- 
-        container = document.createElement('div');
-        document.body.appendChild(container);
- 
-        camera = new THREE.PerspectiveCamera(120, window.innerWidth / window.innerHeight, 1, 10000);
-        camera.position.z = 1000;
- 
-        scene = new THREE.Scene();
- 
-        particles = new Array();
- 
-        var PI2 = Math.PI * 2;
-        var material = new THREE.ParticleCanvasMaterial({
- 
-            color: 0xe1e1e1,
-            program: function(context) {
- 
-                context.beginPath();
-                context.arc(0, 0, .6, 0, PI2, true);
-                context.fill();
- 
-            }
- 
-        });
- 
-        var i = 0;
- 
-        for (var ix = 0; ix < AMOUNTX; ix++) {
- 
-            for (var iy = 0; iy < AMOUNTY; iy++) {
- 
-                particle = particles[i++] = new THREE.Particle(material);
-                particle.position.x = ix * SEPARATION - ((AMOUNTX * SEPARATION) / 2);
-                particle.position.z = iy * SEPARATION - ((AMOUNTY * SEPARATION) / 2);
-                scene.add(particle);
- 
-            }
- 
-        }
- 
-        renderer = new THREE.CanvasRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        container.appendChild(renderer.domElement);
- 
-        document.addEventListener('mousemove', onDocumentMouseMove, false);
-        document.addEventListener('touchstart', onDocumentTouchStart, false);
-        document.addEventListener('touchmove', onDocumentTouchMove, false);
- 
-        //
- 
-        window.addEventListener('resize', onWindowResize, false);
- 
-    }
- 
-    function onWindowResize() {
- 
-        windowHalfX = window.innerWidth / 2;
-        windowHalfY = window.innerHeight / 2;
- 
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
- 
-        renderer.setSize(window.innerWidth, window.innerHeight);
- 
-    }
- 
-    //
- 
-    function onDocumentMouseMove(event) {
- 
-        mouseX = event.clientX - windowHalfX;
-        mouseY = event.clientY - windowHalfY;
- 
-    }
- 
-    function onDocumentTouchStart(event) {
- 
-        if (event.touches.length === 1) {
- 
-            event.preventDefault();
- 
-            mouseX = event.touches[0].pageX - windowHalfX;
-            mouseY = event.touches[0].pageY - windowHalfY;
- 
-        }
- 
-    }
- 
-    function onDocumentTouchMove(event) {
- 
-        if (event.touches.length === 1) {
- 
-            event.preventDefault();
- 
-            mouseX = event.touches[0].pageX - windowHalfX;
-            mouseY = event.touches[0].pageY - windowHalfY;
- 
-        }
- 
-    }
- 
-    //
+  $('.scroll-top').click(function () {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 100);
+      return false;
+  });
+
+});
  
     function animate() {
  

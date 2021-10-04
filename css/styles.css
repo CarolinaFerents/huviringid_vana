@@ -68,42 +68,23 @@
   --bs-body-bg: #fff;
 }
 
-#button {
-  display: inline-block;
-  background-color: #FF9800;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  border-radius: 4px;
+.scroll-top {
+  width: 75px;
+  height: 75px;
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  transition: background-color .3s, 
-    opacity .5s, visibility .5s;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 1000;
+  bottom: 25px;
+  left: 20px;
+  display: none;
+	right: auto
+  
+	
 }
-#button::after {
-  content: "\f077";
-  font-family: FontAwesome;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 2em;
-  line-height: 50px;
+.scroll-top i {
+  display: inline-block;
   color: #fff;
+	right: auto
 }
-#button:hover {
-  cursor: pointer;
-  background-color: #333;
-}
-#button:active {
-  background-color: #555;
-}
-#button.show {
-  opacity: 1;
-  visibility: visible;
-}
+
 #backgr {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
@@ -215,6 +196,7 @@ h6, .h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+	font-weight: 400
 }
 
 abbr[title],
