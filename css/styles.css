@@ -533,7 +533,8 @@ progress {
 }
 
 [hidden] {
-  display: none !important;
+  display: none !
+;
 }
 
 .lead {
